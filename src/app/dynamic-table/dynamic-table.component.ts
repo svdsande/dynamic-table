@@ -11,8 +11,9 @@ import { CellTemplateMarkerDirective } from '../directive/cell-template-marker.d
 })
 export class DynamicTableComponent implements OnInit, AfterViewInit {
 
-  @Input() public displayedColumns: string[] = [];
-  @Input() public data: RockBand[] = [];
+  @Input() displayedColumns: string[] = [];
+  @Input() data: RockBand[] = [];
+  @Input() sortingDataAccessorFunction!: (data: any, sortHeaderId: string) => string | number;
   @ContentChildren(CellTemplateMarkerDirective) cellTemplates!: QueryList<CellTemplateMarkerDirective>;
   @ViewChild(MatSort) sort!: MatSort;
 
@@ -21,10 +22,18 @@ export class DynamicTableComponent implements OnInit, AfterViewInit {
   constructor() { }
 
   ngOnInit(): void {
+    console.log(this.sortingDataAccessorFunction);
     this.dataSource.data = this.data;
   }
 
   ngAfterViewInit() {
     this.dataSource.sort = this.sort;
+    this.setCustomDataSortingIfProvided();
+  }
+
+  private setCustomDataSortingIfProvided(): void {
+    if (typeof(this.sortingDataAccessorFunction) === typeof(Function)) {
+      this.dataSource.sortingDataAccessor = this.sortingDataAccessorFunction
+    }
   }
 }
