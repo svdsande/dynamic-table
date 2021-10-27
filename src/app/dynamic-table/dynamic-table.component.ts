@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ContentChildren, Input, OnInit, QueryList } from '@angular/core';
+import { MatTableDataSource } from '@angular/material/table';
+import { CellTemplateMarkerDirective } from '../directive/cell-template-marker.directive';
 
 @Component({
   selector: 'dynamic-table',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DynamicTableComponent implements OnInit {
 
+  @Input() public displayedColumns: string[] = [];
+  @Input() public dataSource: MatTableDataSource<any> = new MatTableDataSource<any>();
+  @ContentChildren(CellTemplateMarkerDirective) cellTemplates!: QueryList<CellTemplateMarkerDirective>;
+
   constructor() { }
 
   ngOnInit(): void {
   }
-
 }

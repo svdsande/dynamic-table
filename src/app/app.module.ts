@@ -11,11 +11,13 @@ import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DynamicTableComponent } from './dynamic-table/dynamic-table.component';
+import { CellTemplateMarkerDirective } from './directive/cell-template-marker.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DynamicTableComponent
+    DynamicTableComponent,
+    CellTemplateMarkerDirective
   ],
   imports: [
     BrowserModule,
