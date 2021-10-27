@@ -1,4 +1,4 @@
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort *ngIf="this.doneLoadingData; else loading">
 
   <ng-container *ngFor="let cellTemplate of cellTemplates" matColumnDef="{{ cellTemplate.column }}">
     <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ cellTemplate.column }}</th>
@@ -11,3 +11,9 @@
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
 
+<ng-template #loading>
+  <div class="column-headers">
+    <ngx-skeleton-loader count="1" appearance="line" *ngFor="let column of displayedColumns"></ngx-skeleton-loader>
+  </div>
+  <!-- <ngx-skeleton-loader count="10" appearance="line"></ngx-skeleton-loader> -->
+</ng-template>

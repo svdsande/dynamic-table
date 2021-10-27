@@ -13,7 +13,9 @@ export class DynamicTableComponent implements OnInit, AfterViewInit {
 
   @Input() displayedColumns: string[] = [];
   @Input() data: RockBand[] = [];
+  @Input() doneLoadingData: boolean | undefined;
   @Input() sortingDataAccessorFunction!: (data: any, sortHeaderId: string) => string | number;
+
   @ContentChildren(CellTemplateMarkerDirective) cellTemplates!: QueryList<CellTemplateMarkerDirective>;
   @ViewChild(MatSort) sort!: MatSort;
 
