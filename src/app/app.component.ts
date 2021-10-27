@@ -15,10 +15,10 @@ export class RockBand {
 })
 export class AppComponent implements OnInit {
   public displayedColumns: string[] = ['name', 'leadSinger', 'country', 'year'];
-  public dataSource: MatTableDataSource<RockBand> = new MatTableDataSource<RockBand>();
+  public rockBands: RockBand[] = [];
 
   ngOnInit(): void {
-    this.dataSource.data = this.getRockBands();
+    this.rockBands = this.getRockBands();
   }
 
   private getRockBands(): RockBand[] {

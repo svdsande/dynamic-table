@@ -5,6 +5,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
+import { MatSortModule } from '@angular/material/sort';
 
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 
@@ -23,6 +24,7 @@ import { CellTemplateMarkerDirective } from './directive/cell-template-marker.di
     BrowserModule,
     BrowserAnimationsModule,
     MatTableModule,
+    MatSortModule,
     MatButtonModule,
     MatDividerModule,
     MatIconModule,

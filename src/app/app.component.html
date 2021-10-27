@@ -7,7 +7,7 @@
   </div>
 
   <div id="content">
-    <dynamic-table [displayedColumns]="this.displayedColumns" [dataSource]="this.dataSource">
+    <dynamic-table [displayedColumns]="this.displayedColumns" [data]="this.rockBands">
       <ng-template cellTemplateMarker [column]="'name'" let-element="element">{{element.name}}</ng-template>
       <ng-template cellTemplateMarker [column]="'leadSinger'" let-element="element">{{element.leadSinger}}</ng-template>
       <ng-template cellTemplateMarker [column]="'country'" let-element="element">{{element.country}}</ng-template>
