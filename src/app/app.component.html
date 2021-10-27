@@ -4,10 +4,13 @@
     <div id="controls">
       <button mat-raised-button color="primary">Toggle width</button>
     </div>
+    <div id="controls">
+      <button mat-raised-button color="primary" (click)="toggleLoading()">Toggle loading</button>
+    </div>
   </div>
 
   <div id="content">
-    <dynamic-table [displayedColumns]="this.displayedColumns" [data]="this.rockBands">
+    <dynamic-table [displayedColumns]="this.displayedColumns" [data]="this.rockBands" [doneLoadingData]="this.doneLoading">
       <ng-template cellTemplateMarker [column]="'name'" let-element="element">{{element.name}}</ng-template>
       <ng-template cellTemplateMarker [column]="'leadSinger'" let-element="element">{{element.leadSinger}}</ng-template>
       <ng-template cellTemplateMarker [column]="'country'" let-element="element">{{element.country}}</ng-template>

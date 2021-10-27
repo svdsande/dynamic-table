@@ -16,9 +16,14 @@ export class RockBand {
 export class AppComponent implements OnInit {
   public displayedColumns: string[] = ['name', 'leadSinger', 'country', 'year'];
   public rockBands: RockBand[] = [];
+  public doneLoading: boolean = false;
 
   ngOnInit(): void {
     this.rockBands = this.getRockBands();
+  }
+
+  public toggleLoading(): void {
+    this.doneLoading = !this.doneLoading;
   }
 
   private getRockBands(): RockBand[] {

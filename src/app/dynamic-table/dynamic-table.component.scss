@@ -2,8 +2,16 @@ table {
   width: 100%;
 }
 
-.column-headers {
-  display: flex;
+.skeleton-loader-container {
+  .header {
+    display: flex;
+    flex: 1;
+  }
+
+  .row {
+    display: flex;
+    flex: 1;
+  }
 
   ngx-skeleton-loader {
     flex: 1;
